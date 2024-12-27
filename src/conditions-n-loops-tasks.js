@@ -157,8 +157,60 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let words = '';
+  let i = 0;
+  while (numberStr[i] !== undefined) {
+    const value = numberStr[i];
+    switch (value) {
+      case '-':
+        words += 'minus';
+        break;
+      case '.':
+        words += 'point';
+        break;
+      case ',':
+        words += 'point';
+        break;
+      case '0':
+        words += 'zero';
+        break;
+      case '1':
+        words += 'one';
+        break;
+      case '2':
+        words += 'two';
+        break;
+      case '3':
+        words += 'three';
+        break;
+      case '4':
+        words += 'four';
+        break;
+      case '5':
+        words += 'five';
+        break;
+      case '6':
+        words += 'six';
+        break;
+      case '7':
+        words += 'seven';
+        break;
+      case '8':
+        words += 'eight';
+        break;
+      case '9':
+        words += 'nine';
+        break;
+      default:
+        break;
+    }
+    if (numberStr[i + 1] !== undefined) {
+      words += ' ';
+    }
+    i += 1;
+  }
+  return words;
 }
 
 /**
@@ -191,8 +243,14 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let index = -1;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      index = i;
+    }
+  }
+  return index;
 }
 
 /**
@@ -210,8 +268,16 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let number = num;
+  while (number > 0) {
+    const remainder = number % 10;
+    if (remainder === digit) {
+      return true;
+    }
+    number = Math.floor(number / 10);
+  }
+  return false;
 }
 
 /**
